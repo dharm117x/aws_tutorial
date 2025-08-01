@@ -5,6 +5,7 @@ provider "aws" {
 resource "aws_instance" "terrform-ec2" {
     ami           = "ami-0c7f981fd31e5c7ae"  # Specify an appropriate AMI ID
     instance_type = "t2.micro"
+    security_groups = [aws_security_group.existing_sg.id]
 }
 
 data "aws_security_group" "existing_sg" {
